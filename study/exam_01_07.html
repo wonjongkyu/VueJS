@@ -1,0 +1,42 @@
+<!--
+  1.5 컴포넌트를 사용한 작성방법
+
+  [응용]
+
+  [실습]
+-->
+<html>
+  <head>
+    <title>Vue Instance LifeCycle</title>
+  </head>
+  <body>
+      <div id="app-7">
+        <ol>
+          <!-- todo-item 컴포넌트의 인스턴스 만들기 -->
+          <todo-item
+            v-for="item in groceryList"
+            v-bind:todo="item"
+            v-bind:key="item.id">
+          </todo-item>
+        </ol>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+      <script>
+        Vue.component('todo-item', {
+          props: ['todo'],
+          template: '<li>{{ todo.text }}</li>'
+        })
+
+        var app7 = new Vue({
+          el: '#app-7',
+          data: {
+            groceryList: [
+              { id: 0, text: 'Vegetables' },
+              { id: 1, text: 'Cheese' },
+              { id: 2, text: 'Whatever else humans are supposed to eat' }
+            ]
+          }
+        })
+      </script>
+  </body>
+</html>
