@@ -1,0 +1,32 @@
+<!--
+  2.1 속성과 메소드 (2)
+    Object.freeze로 값을 변경하지 못하게 막아준다.
+    
+  [응용]
+
+  [실습]
+-->
+<html>
+  <head>
+    <title>Vue Instance LifeCycle</title>
+  </head>
+  <body>
+      <div id="app">
+        <p> {{ foo }}</p>
+        <button v-on:click="foo = 'baz'">Change it</button>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+      <script>
+        var obj = { foo: 'bar'};
+
+        // 값을 변경하지 못하게 막는다 (상수로 변환)
+        Object.freeze(obj);
+
+        new Vue({
+          el: '#app',
+          data: obj
+        });
+
+      </script>
+  </body>
+</html>
