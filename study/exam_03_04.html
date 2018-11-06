@@ -1,0 +1,25 @@
+<!--
+  3.1 템플릿 문법
+    2. 디렉티브 (1)
+    
+  [응용]
+    -
+  [실습]
+    -
+-->
+<html>
+  <head>
+    <title>Vue Instance LifeCycle</title>
+  </head>
+  <body>
+      <a v-bind:href="url"> 테스트 </a>
+      <p v-if="seen">이제 나를 볼 수 있어요</p>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+      <script>
+      new Vue({
+        data : {url: 'http://naver.com'}
+      });
+      </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!--
+  3.1 템플릿 문법
+    1. 보간법 (2)
+      v-html 속성을 주면 html이 적용된 데이터가 들어간다.
+
+    <주의>
+      웹사이트에서 임의의 HTML을 동적으로 렌더링하려면 XSS 취약점으로 쉽게 이어질 수 있으므로 매우 위험할 가능성이 있습니다.
+      신뢰할 수 있는 콘텐츠에서만 HTML 보간을 사용하고 사용자가 제공한 콘텐츠에서는 절대 사용하면 안됩니다.
+  [응용]
+    -
+  [실습]
+    -
+-->
+<html>
+  <head>
+    <title>Vue Instance LifeCycle</title>
+  </head>
+  <body>
+      <div id="app">
+        <p>Using mustaches: {{ rawHtml }}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+      <script>
+        new Vue({
+          el: '#app',
+          data: {rawHtml: '<span style="color: red">This should be red. </span>'}
+        });
+
+
+      </script>
+  </body>
+</html>

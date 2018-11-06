@@ -1,0 +1,41 @@
+<!--
+  4 computed와 watch (2)
+    -
+  [응용]
+    -
+  [실습]
+    -
+-->
+<html>
+  <head>
+    <title>Vue Instance LifeCycle</title>
+  </head>
+  <body>
+      <div id="example">
+        <p>원본 메시지: "{{ message }}"</p>
+        <p>역순으로 표시한 메시지: "{{ reversedMessage}}" </p>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+      <script>
+        var vm = new Vue({
+          el: '#example',
+          data: {
+            message: '안녕하세요'
+          },
+          // 컴포넌트 내부
+          // 컴포넌트 내부
+          methods: {
+            reversedMessage: function () {
+              return this.message.split('').reverse().join('')
+            }
+          }
+        })
+
+        console.log(vm.reversedMessage);
+
+        vm.message = 'Goodbye';
+        console.log(vm.reversedMessage);
+      </script>
+  </body>
+</html>

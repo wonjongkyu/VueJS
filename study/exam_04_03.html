@@ -1,0 +1,42 @@
+<!--
+  4 computed와 watch (3)
+    -
+  [응용]
+    -
+  [실습]
+    - firstName과 lastName을 변경하면서 실습
+-->
+<html>
+  <head>
+    <title>Vue Instance LifeCycle</title>
+  </head>
+  <body>
+      <div id="demo"> {{ fullName }} </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+      <script>
+        var vm = new Vue({
+          el: '#demo',
+          data: {
+            firstName: 'Foo',
+            lastName: 'Bar',
+            fullName: 'Foo Bar'
+          },
+          watch: {
+            firstName: function(val) {
+              this.fullName = val + ' ' + this.lastName;
+            },
+            lastName: function(val) {
+              this.fullName = this.firstName + ' ' + val;
+            }
+          }
+        })
+
+        // 테스트 코드 1
+        vm.firstName = 'test';
+
+        // 테스트 코드 2
+        vm.lastName = 'Real??';
+      </script>
+  </body>
+</html>
